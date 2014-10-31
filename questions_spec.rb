@@ -170,8 +170,8 @@ describe 'the Friday test :)' do
     a = check_a_string_for_special_characters 'ABCdef123'
     b = check_a_string_for_special_characters 'ABC@def123!'
 
-    expect(a).to be_false
-    expect(b).to be_true
+    expect(a).to eq false
+    expect(b).to eq true
   end
 
   specify 'get_upper_limit_of' do
@@ -183,8 +183,8 @@ describe 'the Friday test :)' do
     a = is_a_3_dot_range? 1..20
     b = is_a_3_dot_range? 1...20
 
-    expect(a).to be_false
-    expect(b).to be_true
+    expect(a).to be false
+    expect(b).to be true
   end
 
   specify 'square_root_of' do
@@ -201,6 +201,8 @@ describe 'the Friday test :)' do
 
   specify 'call_method_from_string' do
     expect { call_method_from_string('foobar') }.to raise_error(NameError)
+    array = [1, 2, 3]
+    expect { array.call_method_from_string('pop') }.to eq( 3 )
   end
 
   specify 'is_a_2014_bank_holiday?' do
