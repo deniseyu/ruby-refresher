@@ -223,11 +223,7 @@ end
 # a-z (uppercase and lower) or numbers
 def check_a_string_for_special_characters(string)
   special_chars = string.chars.reject { |char| char =~ /[a-zA-Z0-9]/ }
-  if special_chars.count > 0
-    return true
-  else
-    return false 
-  end
+  return special_chars.count > 0 ? true : false 
 end
 
 # get the upper limit of a range. e.g. for the range 1..20, you
@@ -249,9 +245,8 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
-  file = File.open('lorem.txt', 'rb')
-  contents = file.read 
-  return contents.split(' ').length
+  file = File.open('lorem.txt', 'rb').read
+  return file.split(' ').length
 end
 
 # --- tougher ones ---
@@ -260,14 +255,22 @@ end
 # called call_method_from_string('foobar')
 # the method foobar should be invoked
 def call_method_from_string(str_method)
-
+  self.str_method
 end
 
 # return true if the date is a uk bank holiday for 2014
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
-
+  bankholidays = [Time.new(2014, 12, 25), 
+    Time.new(2014, 12, 26), 
+    Time.new(2014, 8, 25), 
+    Time.new(2014, 5, 26), 
+    Time.new(2014, 5, 5), 
+    Time.new(2014, 4, 21), 
+    Time.new(2014, 4, 18), 
+    Time.new(2014, 1, 1)]
+  return bankholidays.include?(date)
 end
 
 # given your birthday this year, this method tells you
